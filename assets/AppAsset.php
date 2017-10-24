@@ -39,3 +39,17 @@ class LayuiAsset extends AssetBundle
         'layui/layui.all.js'
     ];
 }
+
+
+class MultitabsMaterial extends AssetBundle
+{
+    public $basePath = '@webroot';
+    public $baseUrl = '@web';
+    public $css = [
+        'css/multitabs-style.css'
+    ];
+    public $js = [
+        'js/multitabs.js',
+    ];
+
+}

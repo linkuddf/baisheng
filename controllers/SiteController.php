@@ -12,35 +12,6 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                //'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['login','error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout','index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post','get'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * @inheritdoc
@@ -65,9 +36,20 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout='main';
         return $this->render('index');
     }
 
+    public function actionDashboard()
+    {
+        $this->layout='main_notab';
+        return $this->render('index');
+    }
+
+    public  function actionTest()
+    {
+        echo 123;
+    }
     /**
      * Login action.
      *
